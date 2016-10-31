@@ -211,8 +211,8 @@ def chi2(X, y):
     # XXX: we might want to do some of the following in logspace instead for
     # numerical stability.
     X = check_array(X, accept_sparse='csr')
-    if np.any((X.data if issparse(X) else X) < 0):
-        raise ValueError("Input X must be non-negative.")
+    if np.any((X.data if issparse(X) else X) < 0):    #not none
+        raise ValueError("Input X must be non-negative.")    
 
     Y = LabelBinarizer().fit_transform(y)
     if Y.shape[1] == 1:
